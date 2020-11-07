@@ -20,7 +20,6 @@ import dto.UserDTO;
  */
 @WebFilter("/ProjectADpage/*")
 public class IsADLogin implements Filter {
-
     /**
      * Default constructor. 
      */
@@ -42,21 +41,22 @@ public class IsADLogin implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		HttpServletRequest rq = (HttpServletRequest) request;
-		HttpServletResponse rp = (HttpServletResponse) response;
-		HttpSession session =  rq.getSession();
+		HttpSession session = rq.getSession();
+		String servletPath = rq.getServletPath();		
 		
-		String email = request.getParameter("email") ;
-		String pass = request.getParameter("pass");
-		UserDTO isUserLogin = (UserDTO) session.getAttribute("User") ;		
-		session.setMaxInactiveInterval(900);		
-		if(email==null && pass==null && isUserLogin==null ) {
-			RequestDispatcher dp = request.getRequestDispatcher("Login.jsp");
-			dp.forward(request, response);
-		}
+		UserDTO isUserLogin = (UserDTO) session.getAttribute("User");	
+		if(servletPath.matches(".*(css|js|jpg|jpeg|png)") || isUserLogin.getType() == 1 ){	
+	
+	    	chain.doFilter(request, response);
+	    }
 		else {
+
+	    	RequestDispatcher dp = request.getRequestDispatcher("../ErrorPage/Error.jsp");	    	
+			dp.forward(request, response);
+	    }		
 			// pass the request along the filter chain	
-			chain.doFilter(request, response);			
-		}		
+			
+			
 	}
 
 	/**
