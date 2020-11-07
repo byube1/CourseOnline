@@ -78,7 +78,11 @@
                             Sign up
                         </button>
                     </div>
+<<<<<<< HEAD
                     <img src="#" class="image" alt="" />
+=======
+                    <img src="../img1/log.svg" class="image" alt="" />
+>>>>>>> 2e4013ff047f9f7d8b9cccf6a0d064bcb97887ec
                 </div>
                 <div class="panel right-panel">
                     <div class="content">
@@ -91,7 +95,11 @@
                             Sign in
                         </button>
                     </div>
+<<<<<<< HEAD
                     <img src="#" class="image" alt="" />
+=======
+                    <img src="../img1/register.svg" class="image" alt="" />
+>>>>>>> 2e4013ff047f9f7d8b9cccf6a0d064bcb97887ec
                 </div>
             </div>
         </div>
